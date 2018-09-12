@@ -17,5 +17,11 @@ var vm = new  Vue({
             this.newItem = '';
         }
     }
+ methods: {
+        addItem: function() { 
+            this.todos.push(this.newItem);
+            this.newItem = '';
+        }
+    }
 });
 })();
