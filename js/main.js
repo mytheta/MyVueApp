@@ -5,22 +5,31 @@ var vm = new  Vue({
     el: '#app',
     data: {
         newItem: '',
-        todos: [
-            'task1',
-            'task2',
-            'task3'
-        ] 
+        todos: [  {
+            title: 'task1',
+            isDone: false
+        } , {
+            title: 'task2',
+            isDone: false,
+        } , {
+            title: 'task3',
+            isDone: false,
+        } ]
     },
     methods: {
-        addItem: function() { 
-            this.todos.push(this.newItem);
+        addItem: function() {
+            var item = {
+                title: this.newItem,
+                isDone: false
+            };
+            this.todos.push(item);
             this.newItem = '';
-        }
-    }
- methods: {
-        addItem: function() { 
-            this.todos.push(this.newItem);
-            this.newItem = '';
+        },
+
+        deleteItem: function(index) { 
+            if (confirm('are you sure?')){
+                this.todos.splice(index,1);
+            }
         }
     }
 });
